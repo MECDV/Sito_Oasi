@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Oasi della Buona Tavola</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #fbeec1, #fcd5ce);
+      color: #3e1f47;
+      background-image: url('https://www.transparenttextures.com/patterns/food.png');
+    }
+    header {
+      background-color: #ff6f61;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px #000;
+    }
+    nav {
+      background-color: #ffb703;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+    nav a {
+      color: #3e1f47;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem;
+    }
+    h2 {
+      background-color: #90e0ef;
+      padding: 0.5rem;
+      border-left: 10px solid #00b4d8;
+    }
+    .prodotto {
+      margin-bottom: 1rem;
+      background-color: #fefae0;
+      border: 2px dashed #e76f51;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .gallery img {
+      width: 200px;
+      margin: 1rem;
+      border: 5px solid #ffb703;
+      border-radius: 15px;
+    }
+    .ordine {
+      background-color: #fff0f5;
+      padding: 2rem;
+      border: 2px dotted #ff69b4;
+      border-radius: 10px;
+    }
+    .riepilogo {
+      background-color: #e0fbfc;
+      border: 2px solid #3a86ff;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 10px;
+    }
+    footer {
+      background-color: #8ecae6;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+    input, textarea, select, button {
+      margin-top: 0.5rem;
+      display: block;
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #ff6f61;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function inviaOrdine(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const indirizzo = document.getElementById('indirizzo').value;
+      const prodotti = document.getElementById('prodotti').value;
+      const pagamento = document.getElementById('pagamento').value;
+      const messaggio = `ORDINE\n👤 Nome: ${nome}\n🏠 Indirizzo: ${indirizzo}\n🧾 Prodotti: ${prodotti}\n💳 Pagamento: ${pagamento}`;
+
+      document.getElementById('riepilogo-contenuto').innerText = messaggio;
+
+      const numero = '3922340754'; // Numero di Marco
+      const url = `https://wa.me/39${numero}?text=${encodeURIComponent(messaggio)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <header>L'Oasi della Buona Tavola 🍝</header>
+
+  <nav>
+    <a href="#chi-siamo">Chi Siamo</a>
+    <a href="#prodotti">Prodotti</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#ordine">Ordina</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+
+  <section id="chi-siamo">
+    <h2>Chi Siamo</h2>
+    <p>Siamo un'attività artigianale locale con sede a Ceprano (FR), attiva nel settore ristorativo dal 2000. Offriamo monoporzioni fatte a mano, confezionate in atmosfera protetta (A.T.M.), senza conservanti!</p>
+    <p>🍽️ Vaschette biodegradabili, 🍅 materie prime selezionate, 🔥 cottura ad alta temperatura: tutto per portare qualità e gusto a casa tua!</p>
+  </section>
+
+  <section id="prodotti">
+    <h2>Prodotti</h2>
+    <h3>Primi Piatti</h3>
+    <div class="prodotto">Lasagna al Ragù - €3.97 / €5.30</div>
+    <div class="prodotto">Cannelloni alla Carne - €4.32 / €5.80</div>
+    <div class="prodotto">Gnocchi alla crema di Scampi - €4.32 / €5.80</div>
+
+    <h3>Secondi Piatti</h3>
+    <div class="prodotto">Arista di maiale e olive - €4.47</div>
+    <div class="prodotto">Polpette di Manzo e fagioli - €4.47</div>
+    <div class="prodotto">Maxi Hamburger Vegano - €4.32</div>
+
+    <h3>Fritti</h3>
+    <div class="prodotto">Supplì (70g) - €/kg 10.00</div>
+    <div class="prodotto">Crocchette di Patate (70g) - €/kg 10.00</div>
+    <div class="prodotto">Bocconcini di Melanzana (30g) - €/kg 9.00</div>
+
+    <h3>Dolci</h3>
+    <div class="prodotto">Tozzetti alle Mandorle - €/kg 9.00</div>
+    <div class="prodotto">Ciambelline al vino rosso/bianco - €5.98</div>
+    <div class="prodotto">Crostata alla ciliegia - €6.10</div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery 🍰🍕🍗</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1604908554200-2991b3810a94" alt="Lasagna">
+      <img src="https://images.unsplash.com/photo-1632844310673-4a739a19e755" alt="Fritti">
+      <img src="https://images.unsplash.com/photo-1606755962773-ec0f017b54d2" alt="Dolci">
+    </div>
+  </section>
+
+  <section id="ordine">
+    <h2>Ordina Adesso 📦</h2>
+    <div class="ordine">
+      <form onsubmit="inviaOrdine(event)">
+        <label>Nome e Cognome:</label>
+        <input id="nome" type="text" required>
+
+        <label>Indirizzo di spedizione:</label>
+        <textarea id="indirizzo" required></textarea>
+
+        <label>Prodotti da ordinare:</label>
+        <textarea id="prodotti" placeholder="Es. 2x Lasagna, 1x Crocchette..." required></textarea>
+
+        <label>Metodo di pagamento:</label>
+        <select id="pagamento" required>
+          <option>Contanti alla consegna</option>
+          <option>Bonifico</option>
+          <option>PayPal</option>
+        </select>
+
+        <button type="submit">Invia Ordine via WhatsApp</button>
+      </form>
+
+      <div class="riepilogo">
+        <h3>📋 Riepilogo Ordine:</h3>
+        <pre id="riepilogo-contenuto">Compila il modulo per vedere il riepilogo.</pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatti">
+    <h2>Contatti</h2>
+    <p>📞 Roberto: 375 7785994</p>
+    <p>📞 Marco: 392 2340754</p>
+    <p>📞 Maurizio: 388 9552404</p>
+  </section>
+
+  <footer>
+    Made with ❤️ e tanta fame | Ceprano (FR) | © 2025 L'Oasi della Buona Tavola
+  </footer>
+</body>
+</html>
